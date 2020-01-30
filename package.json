@@ -1,0 +1,12 @@
+{
+  "name": "devigetCodeTest",
+  "scripts": {
+    "test": "node_modules/.bin/mocha tests/aliExpressTest.js --timeout 10000"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chromedriver": "^79.0.0",
+    "mocha": "^5.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
+}
