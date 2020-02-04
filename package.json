@@ -1,7 +1,14 @@
 {
-  "name": "devigetCodeTest",
+  "name": "deviget_code_test",
   "scripts": {
-    "test": "node_modules/.bin/mocha tests/aliExpressTest.js --timeout 10000"
+    "test": "node_modules/.bin/mocha tests/aliExpressTest.js --timeout 40000"
+  },
+  "dependencies": {
+    "@types/dotenv": "^6.1.1",
+    "dotenv": "^8.2.0",
+    "moment": "^2.24.0",
+    "protractor": "^5.4.1",
+    "typescript": "^3.4.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",

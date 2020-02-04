@@ -14,11 +14,9 @@ function ProductPage(webdriver) {
 ProductPage.prototype = Object.create(HomePage.prototype);
 ProductPage.prototype.constructor = ProductPage;
 
-ProductPage.prototype.getProductQuantity = function() {
-    this.waitUntilVisible(PRODUCT_QUANTITY);
-    number = this.findElement(PRODUCT_QUANTITY).getText();
-    number = number.split(' ');
-    return number[1];
+ProductPage.prototype.getProductQuantity = async function() {
+    await this.waitUntilVisible(PRODUCT_QUANTITY);
+    return await this.findElement(PRODUCT_QUANTITY).getText();
 };
 
 module.exports = ProductPage;
