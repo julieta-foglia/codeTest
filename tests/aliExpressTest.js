@@ -1,18 +1,12 @@
-const { Builder, element, by } = require('selenium-webdriver');
+const { Builder } = require('selenium-webdriver');
 const { expect } = require('chai');
-const driverTimeout = 40000;
-const webdriver = require('selenium-webdriver');
-
 
 let HomePage = require('../pages/homePage');
 let ProductPage = require('../pages/productPage');
 let SearchResultsPage = require('../pages/searchResultsPage');
-const By = webdriver.By;
-let homePage;
-let productPage;
-let searchResultsPage;
 let term = 'iphone';
 let page = 'https://www.aliexpress.com';
+let pageTwo = '2';
 
 describe('Ali Express test', () => {
     const driver = new Builder().forBrowser('chrome').build();
@@ -31,7 +25,7 @@ describe('Ali Express test', () => {
     });
   
     it('should navigate to the second page', async () => {
-        await searchResultsPage.searchPage2();
+        await searchResultsPage.searchPage(pageTwo);
         expect(await driver.getCurrentUrl()).to.contain('page=2');
     });
   
@@ -40,7 +34,8 @@ describe('Ali Express test', () => {
     });
   
     it('should verify product stock', async () => {
-        const number = await productPage.getProductQuantity();
+        await homePage.goToSecondTab();
+        await productPage.getProductQuantity();
         expect(number.split(' ')[0]).to.be.greaterThan(1);
     });
 

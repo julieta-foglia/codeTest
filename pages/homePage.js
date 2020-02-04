@@ -55,6 +55,11 @@ HomePage.prototype.search = async function (searchTerm) {
     return this;
 };
 
+HomePage.prototype.goToSecondTab = async function() {
+    await this.driver.actions().keyDown(key.CONTROL).sendKeys(key.NUMPAD1).perform();
+    await this.driver.actions().keyDown(key.CONTROL).sendKeys("w").perform();
+};
+
 module.exports = HomePage;
 
 
